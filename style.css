@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    /* background-color: #1C1D22; */
+}
+
+/* body {
+    display: flex;
+    height: 100vh;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+} */
+
+.left-side,
+.right-side {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-side {
+    background-color: #F5F9FF;
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+.left-side .form-group input {
+    background-color: #ffffff;
+    color: #343a40;
+    border: 1px solid #ced4da;
+}
+
+.left-side .form-group input:focus {
+    background-color: #ffffff;
+}
+
+.right-side {
+    flex: 1;
+    background: url('your-video-thumbnail.jpg') center center / cover no-repeat;
+    position: relative;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.left-side,
+.right-side {
+    height: 100vh;
+}
+
+.right-side video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+
+    .left-side,
+    .right-side {
+        height: auto;
+    }
+
+    .right-side {
+        display: none;
+    }
+}
+
+.notifications {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+.right-side {
+    position: relative;
+}
+
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.noti {
+    position: relative;
+    padding: 10px;
+    color: #22242f;
+    margin-bottom: 10px;
+    width: 400px;
+    display: grid;
+    grid-template-columns: 70px 1fr 70px;
+    border-radius: 5px;
+    --color: #0abf30;
+    background-image:
+        linear-gradient(to right, #0abf30c5, #fff 30%);
+    animation: show 0.8s ease 1 forwards
+}
+
+.noti i {
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.noti .title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.noti span,
+.noti i:nth-child(3) {
+    color: #22242f;
+    opacity: 0.9;
+}
+
+@keyframes show {
+    0% {
+        transform: translateX(100%);
+    }
+
+    40% {
+        transform: translateX(-5%);
+    }
+
+    80% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.noti::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color);
+    width: 100%;
+    height: 3px;
+    content: '';
+    box-shadow: 0 0 10px var(--color);
+    animation: timeOut 5s linear 1 forwards
+}
+
+@keyframes timeOut {
+    to {
+        width: 0;
+    }
+}
+
+.noti.error {
+    --color: #f24d4c;
+    background-image:
+        linear-gradient(to right, #f24d4cc5, #fff 30%);
+}
+
+.noti.warning {
+    --color: #e9bd0c;
+    background-image:
+        linear-gradient(to right, #e9bd0cc5, #fff 30%);
+}
+
+.noti.info {
+    --color: #3498db;
+    background-image:
+        linear-gradient(to right, #3498dbc5, #fff 30%);
+}
+
+/* Mobile specific styles */
+@media (max-width: 767.98px) {
+
+    .notifications {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+    }
+
+    .noti {
+        width: 95%;
+        /* Make the notification width match the screen width */
+        grid-template-columns: 50px 1fr 50px;
+        /* Adjust the grid columns for smaller screens */
+    }
+
+    .noti .title {
+        font-size: medium;
+        /* Adjust font size for smaller screens */
+    }
+
+    .noti i {
+        font-size: large;
+        /* Adjust icon size for smaller screens */
+    }
+}
+
+button.round {
+    position: absolute;
+    bottom: 40px;
+    right: 25px;
+
+    background-color: #fff;
+    color: rgb(59 130 246);
+    border: 2px solid;
+    padding: 5px;
+    font-size: 25px;
+    height: 45px;
+    width: 45px;
+    box-shadow: 0 2px 4px darkslategray;
+    border-radius: 50%;
+}
+
+button.round:hover {
+    background-color: rgb(59 130 246);
+    color: #fff;
+}
+
+button.round:active {
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+}
+
+/* Center the loader */
+/* #loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  } */
+
+/* Add animation to "page content" */
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+#myDiv {
+    display: none;
+}
+
+
+
